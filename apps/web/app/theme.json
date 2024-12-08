@@ -1,0 +1,23 @@
+{
+    "token": {
+        "colorPrimary": "#da458f",
+        "colorInfo": "#da458f",
+        "fontSize": 16,
+        "wireframe": false
+    },
+    "components": {
+        "Button": {
+            "colorPrimary": "linear-gradient(90deg, #DA458F, #DA34DD)",
+            "borderRadius": 4,
+            "borderRadiusLG": 6,
+            "borderRadiusSM": 2,
+            "controlHeight": 44,
+            "controlHeightLG": 52,
+            "controlHeightSM": 36
+        },
+        "Layout": {
+            "headerBg": "rgba(23,22,26,0.6980392156862745)",
+            "headerHeight": 84
+        }
+    }
+}
