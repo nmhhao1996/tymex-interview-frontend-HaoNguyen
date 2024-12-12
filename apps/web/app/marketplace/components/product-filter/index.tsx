@@ -6,18 +6,17 @@ import Select, { Option } from "../../../../components/ui/select";
 import { Theme, Tier } from "../../../../models";
 import z from "zod";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import qs from "query-string";
+import qs from "../../../../lib/query-string";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../../../../components/ui/button";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap_white.css";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import productService from "../../../../services/product";
 import {
   formSchema,
-  querySchema,
   TimeOptions,
   PriceOptions,
   formTransformer,
@@ -28,9 +27,7 @@ type ProductFilterProps = {
   onFilterChange?: () => void;
 };
 
-export default function ProductFilter({
-  onFilterChange,
-}: ProductFilterProps): JSX.Element {
+export default function ProductFilter({ onFilterChange }: ProductFilterProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -79,7 +76,7 @@ export default function ProductFilter({
               <Input
                 placeholder="Quick search"
                 className="pl-12"
-                value={field.value ?? ''}
+                value={field.value ?? ""}
                 onChange={field.onChange}
                 onBlur={field.onBlur}
               />
@@ -88,7 +85,7 @@ export default function ProductFilter({
         </div>
 
         {ceiledMaxPrice !== undefined && (
-          <div className="space-y-2">
+          <div className="space-y-2" data-testid="price-slider">
             <label className="text-white font-semibold">PRICE</label>
             <Controller
               control={control}
@@ -198,7 +195,7 @@ export default function ProductFilter({
           />
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2" data-testid="price-sorter">
           <label className="text-white font-semibold">PRICE</label>
           <Controller
             control={control}
@@ -242,7 +239,7 @@ export default function ProductFilter({
 
   function _onSubmit(data: z.infer<typeof formSchema>) {
     const transformedData = formTransformer.parse(data);
-    const oldQuery = qs.parse(searchParams.toString());
+    const oldQuery = qs.parse(searchParams);
     const newQuery = { ...oldQuery, ...transformedData };
     router.push(`${pathname}?${qs.stringify(newQuery)}`, {
       scroll: false,

@@ -2,7 +2,7 @@ import { useSearchParams } from "next/navigation";
 import { z } from "zod";
 import { querySchema } from "./schema";
 import { useMemo } from "react";
-import qs from "query-string";
+import qs from "../../../../lib/query-string";
 
 export function useFilterData(): {
   filter: Partial<z.infer<typeof querySchema>>;
@@ -11,7 +11,7 @@ export function useFilterData(): {
   const searchParams = useSearchParams();
 
   const filter = useMemo(() => {
-    const parsedRes = querySchema.safeParse(qs.parse(searchParams.toString()));
+    const parsedRes = querySchema.safeParse(qs.parse(searchParams));
     if (parsedRes.success) {
       return parsedRes.data;
     }
@@ -22,5 +22,5 @@ export function useFilterData(): {
   return {
     filter,
     hasFilter: Object.values(filter).some((val) => val !== undefined),
-  }
+  };
 }

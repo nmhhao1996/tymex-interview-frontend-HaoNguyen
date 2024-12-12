@@ -7,11 +7,11 @@ import ProductCard, {
 import { LoaderCircle, RotateCcw } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { useSearchParams } from "next/navigation";
-import queryString from "query-string";
+import qs from "../../../lib/query-string";
 
-export default function ProductList(): JSX.Element {
+export default function ProductList() {
   const searchParams = useSearchParams();
-  const query = queryString.parse(searchParams.toString());
+  const query = qs.parse(searchParams);
 
   const {
     data,
@@ -55,6 +55,7 @@ export default function ProductList(): JSX.Element {
         {isFetchingNextPage && <div></div>}
         {(hasNextPage || isFetchingNextPage) && (
           <Button
+            data-testid="view-more-button"
             className="h-16 w-80"
             disabled={isFetchingNextPage}
             onClick={() => fetchNextPage()}
@@ -75,7 +76,7 @@ export default function ProductList(): JSX.Element {
       <div className="space-y-4">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {Array.from({ length: 16 }).map((_, index) => (
-            <ProductCardSkeleton key={`skeleton-${index}`} />
+            <ProductCardSkeleton data-testid="skeleton" key={`skeleton-${index}`} />
           ))}
         </div>
       </div>

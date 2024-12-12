@@ -45,7 +45,13 @@ export default function CategoryFilter(): JSX.Element {
       } else {
         newSearchParams.set("category", category);
       }
-      router.push(`${pathname}?${newSearchParams.toString()}`, {
+
+
+      let queryStr = newSearchParams.toString();
+      if (queryStr) {
+        queryStr = `?${queryStr}`;
+      }
+      router.push(`${pathname}${queryStr}`, {
         scroll: false,
       });
     };
