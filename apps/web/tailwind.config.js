@@ -6,10 +6,14 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "drone-ranger-pro": ["var(--font-drone-ranger-pro)"],
+      },
       colors: {
         'product-card': 'var(--product-card-color)',
         'input': 'var(--input-color)',
         'primary': 'var(--primary-color)',
+        'footer': 'var(--footer-color)',
       },
       backgroundImage: {
         "stars-image": "url('/img/background-stars.png')",

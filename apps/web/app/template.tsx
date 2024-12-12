@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeaderMenu from "../components/header-menu";
+import Footer from "../components/footer";
 
 const menuItems = [
   {
@@ -34,8 +35,14 @@ export default function Layout({
       <HeaderMenu items={menuItems} />
       <main>
         {children}
-        <Image src="/img/footer-pattern.png" height={418} width={1920} alt={""} />
+        <Image
+          src="/img/footer-pattern.png"
+          height={418}
+          width={1920}
+          alt={""}
+        />
       </main>
+      <Footer />
     </>
   );
 }

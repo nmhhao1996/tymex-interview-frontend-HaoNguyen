@@ -22,25 +22,20 @@ import {
   PriceOptions,
   formTransformer,
 } from "./schema";
+import { useFilterData } from "./hooks";
 
-export default function ProductFilter(): JSX.Element {
+type ProductFilterProps = {
+  onFilterChange?: () => void;
+};
+
+export default function ProductFilter({
+  onFilterChange,
+}: ProductFilterProps): JSX.Element {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  const queryData: Partial<z.infer<typeof querySchema>> = useMemo(() => {
-    console.log(
-      "searchParams",
-      searchParams,
-      qs.parse(searchParams.toString())
-    );
-    const parsedRes = querySchema.safeParse(qs.parse(searchParams.toString()));
-    if (parsedRes.success) {
-      return parsedRes.data;
-    }
-
-    return {};
-  }, [searchParams]);
+  const { filter: filterData, hasFilter } = useFilterData();
 
   const { data: maxPrice } = useQuery({
     queryKey: ["maxPrice"],
@@ -67,10 +62,10 @@ export default function ProductFilter(): JSX.Element {
     maxPrice !== undefined ? Math.ceil(maxPrice) : undefined;
 
   useEffect(() => {
-    reset(queryData, {
+    reset(filterData, {
       keepDefaultValues: true,
     });
-  }, [queryData, reset, searchParams]);
+  }, [filterData, reset]);
 
   return (
     <form onSubmit={handleSubmit(_onSubmit)}>
@@ -84,7 +79,7 @@ export default function ProductFilter(): JSX.Element {
               <Input
                 placeholder="Quick search"
                 className="pl-12"
-                value={field.value ?? undefined}
+                value={field.value ?? ''}
                 onChange={field.onChange}
                 onBlur={field.onBlur}
               />
@@ -122,7 +117,7 @@ export default function ProductFilter(): JSX.Element {
                   )}
                   min={0.01}
                   max={ceiledMaxPrice}
-                  step={0.00}
+                  step={0.0}
                   onChange={field.onChange}
                   value={field.value ?? undefined}
                 />
@@ -225,21 +220,11 @@ export default function ProductFilter(): JSX.Element {
         </div>
 
         <div className="flex gap-10">
-          {Object.values(queryData).some((it) => it !== undefined) && (
+          {hasFilter && (
             <Button
               variant="link"
               className="px-0 h-11 flex items-center text-white gap-3"
-              onClick={() => {
-                reset(
-                  {},
-                  {
-                    keepDefaultValues: true,
-                  }
-                );
-                router.push(pathname, {
-                  scroll: false,
-                });
-              }}
+              onClick={_onReset}
             >
               <div className="flex rounded-full h-5 w-5 bg-yellow-300 items-center justify-center">
                 <X className="text-black" size={12} strokeWidth={4} />
@@ -260,6 +245,20 @@ export default function ProductFilter(): JSX.Element {
     const oldQuery = qs.parse(searchParams.toString());
     const newQuery = { ...oldQuery, ...transformedData };
     router.push(`${pathname}?${qs.stringify(newQuery)}`, {
+      scroll: false,
+    });
+    onFilterChange?.();
+  }
+
+  function _onReset() {
+    reset(
+      {},
+      {
+        keepDefaultValues: true,
+      }
+    );
+    onFilterChange?.();
+    router.push(pathname, {
       scroll: false,
     });
   }

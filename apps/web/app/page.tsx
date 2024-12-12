@@ -1,9 +1,15 @@
+import Link from "next/link";
 import { Button } from "../components/ui/button";
 
 export default function Page(): JSX.Element {
   return (
     <div className="container mx-auto pt-header">
-      <Button className="mt-4">Go to Marketplace</Button>
+      <Link
+        href="/marketplace"
+        className="inline-flex items-center justify-center rounded h-10 px-5 bg-primary-gradient text-white mt-10"
+      >
+        Go to Marketplace
+      </Link>
     </div>
   );
 }

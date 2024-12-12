@@ -1,6 +1,6 @@
 import { Heart } from "lucide-react";
 import { Category, Product } from "../../models";
-import Ethereum from "../ui/icons/Ethereum";
+import Ethereum from "../ui/icons/ethereum";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 

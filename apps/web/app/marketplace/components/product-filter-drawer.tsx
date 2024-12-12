@@ -5,23 +5,34 @@ import { useState } from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { Filter, X } from "lucide-react";
+import { useFilterData } from "./product-filter/hooks";
 
 export default function ProductFilterDrawer(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { hasFilter } = useFilterData();
 
   return (
     <>
       <Button
         onClick={_toggleDrawer}
-        className="w-10 h-10 px-0 flex justify-center items-center"
+        className="relative w-10 h-10 px-0 flex justify-center items-center"
       >
         <Filter />
+        {hasFilter && (
+          <div className="absolute -top-1 -right-1">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+            </span>
+          </div>
+        )}
       </Button>
       <Drawer
         open={isOpen}
         onClose={_toggleDrawer}
         direction="right"
-        className="!w-[100%] !bg-stars-image"
+        className="!w-[100%] !bg-stars-image overflow-auto"
         lockBackgroundScroll
       >
         <div className="flex justify-end">
@@ -30,7 +41,7 @@ export default function ProductFilterDrawer(): JSX.Element {
           </Button>
         </div>
         <div className="p-4">
-          <ProductFilter />
+          <ProductFilter onFilterChange={_toggleDrawer} />
         </div>
       </Drawer>
     </>

@@ -1,16 +1,18 @@
+import Image from "next/image";
 import CategoryFilter from "./components/category-filter";
 import ProductFilter from "./components/product-filter";
 import ProductFilterDrawer from "./components/product-filter-drawer";
 import ProductList from "./components/product-list";
+import { Banner } from "./components/banner";
 
 export default function Page(): JSX.Element {
   return (
     <>
-      <div className="h-[400px] bg-slate-200/25 pt-header"></div>
+      <Banner />
       <div className="container mx-auto pt-14">
-        <div className="grid grid-cols-1 px-3 md:px-0 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 px-3 md:grid-cols-4 gap-8">
           <div className="hidden md:block static">
-            <div className="stick top-header">
+            <div className="sticky top-[calc(var(--header-height)+2rem)]">
               <ProductFilter />
             </div>
           </div>
