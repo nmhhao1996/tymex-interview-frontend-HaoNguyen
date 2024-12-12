@@ -1,0 +1,35 @@
+.rc-slider {
+  height: 1.5rem;
+  padding: 0;
+}
+
+.rc-slider-handle {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-color: white;
+  background-image: radial-gradient(var(--primary-color), transparent);
+  margin-top: 0;
+}
+
+.rc-slider-handle:hover {
+  border-color: var(--primary-color);
+}
+
+.rc-slider-track {
+  background-image: var(--primary-gradient);
+}
+
+.rc-slider-rail {
+  background-color: var(--input-color);
+}
+
+.rc-slider-track,
+.rc-slider-rail {
+  margin-top: 0.5rem;
+  height: 0.5rem;
+}
+
+.rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 5px var(--primary-color);
+}

@@ -6,11 +6,23 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'product-card': 'var(--product-card-color)',
+        'input': 'var(--input-color)',
+        'primary': 'var(--primary-color)',
+      },
       backgroundImage: {
         "stars-image": "url('/img/background-stars.png')",
+        "primary-gradient": "var(--primary-gradient)",
+        "primary-gradient-2": "var(--primary-gradient-2)",
+        "default-category-gradient": "var(--default-category-gradient)",
+        "mythic-category-gradient": "var(--mythic-category-gradient)",
+        "rare-category-gradient": "var(--rare-category-gradient)",
+        "epic-category-gradient": "var(--epic-category-gradient)",
+        "legendary-category-gradient": "var(--legendary-category-gradient)",
       },
       spacing: {
-        header: "84px",
+        header: "var(--header-height)",
       },
     },
   },

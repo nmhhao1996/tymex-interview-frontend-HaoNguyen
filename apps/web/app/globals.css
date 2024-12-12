@@ -3,4 +3,16 @@
 @tailwind utilities;
 
 :root {
+    --header-height: 84px;
+    --primary-gradient: linear-gradient(90deg, #DA458F, #DA34DD);
+    --primary-gradient-2: linear-gradient(90deg, #DA458F80, #DA34DD80);
+    --primary-color: #DA458F;
+    --product-card-color: #3A384199;
+    --input-color: #89888B;
+
+    --default-category-gradient: linear-gradient(90deg, #49DD81, #22B4C6);
+    --mythic-category-gradient: linear-gradient(90deg, #FE5A5A, #F163D2);
+    --rare-category-gradient: linear-gradient(90deg, #43A6F6, #5868F3);
+    --legendary-category-gradient: linear-gradient(90deg, #FE955A, #F1DA63);
+    --epic-category-gradient: linear-gradient(90deg, #DD5AFE, #6366F1);
 }

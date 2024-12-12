@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import themeConfig from "./theme.json";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
-import ThemeProvider from "../components/ui/theme-provider";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "TymeX",
@@ -16,10 +14,8 @@ export default function RootLayout({
 }>): JSX.Element {
   return (
     <html lang="en">
-      <body>
-        <AntdRegistry>
-          <ThemeProvider theme={themeConfig}>{children}</ThemeProvider>
-        </AntdRegistry>
+      <body className="bg-stars-image">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
