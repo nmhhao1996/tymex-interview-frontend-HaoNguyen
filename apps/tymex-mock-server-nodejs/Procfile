@@ -1,0 +1,1 @@
+web: cd apps/tymex-mock-server-nodejs && npm start

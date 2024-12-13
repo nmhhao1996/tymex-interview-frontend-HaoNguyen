@@ -5,7 +5,10 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "test": "pnpm -F=web test",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "build:mock-server": "turbo run build --filter=tymex-mock-server-nodejs",
+    "heroku-postbuild": "pnpm run build:mock-server"
   },
   "devDependencies": {
     "prettier": "^3.2.5",

@@ -1,7 +1,5 @@
 "use client";
-import Link from "next/link";
 import "./styles.css";
-import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 import { AlignJustify, ChevronDown, Globe, X } from "lucide-react";

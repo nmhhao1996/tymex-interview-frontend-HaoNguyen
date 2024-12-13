@@ -1,81 +1,86 @@
-# Turborepo starter
+# Tymex Interview Frontend - Hao Nguyen
 
-This is an official starter Turborepo.
+## Technologies Used
 
-## Using this example
+- ReactJS
+- NextJS
+- Node.js
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- Turborepo (for monorepo)
+- Axios (for HTTP requests)
+- Jest (for testing)
 
-Run the following command:
+## Getting Started
 
-```sh
-npx create-turbo@latest
+### Prerequisites
+
+Ensure you have the following installed on your machine:
+
+- Node.js (v14 or higher)
+- pnpm
+
+### Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/nmhhao1996/tymex-interview-frontend-HaoNguyen.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd tymex-interview-frontend-HaoNguyen
+    ```
+3. Install the dependencies:
+    ```bash
+    pnpm install
+    ```
+
+### Running the Application
+
+Configure the environment variables:
+
+```bash
+cp ./apps/web/.env.example .env.local
+cp ./apps/tymex-mock-server-nodejs/.env.example .env
 ```
 
-## What's inside?
+To start the development server, run:
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
+```bash
 pnpm dev
 ```
 
-### Remote Caching
+The application will be available at `http://localhost:3000`.
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+### Running Tests
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+To run the tests, use:
+```bash
+pnpm test
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## Project Structure
+- `apps/` - Contains the applications
+  - `tymex-mock-server-nodejs/` - Mock server for the frontend
+  - `web/` - Frontend application
+    - `app/` - App Router and Layout
+      - `marketplace` - Marketplace page 
+        - `components/` - Components for the marketplace page
+        -  `page.tsx` - Marketplace page component
+      - `global.css` - Global styles
+      - `page.tsx` - Home page component
+      - `providers.tsx` - Context providers
+      - `template.tsx` - Main template
+    - `components/` - Reusable components
+      - `ui/` - UI components
+      - rest - Other components
+    - `lib/` - Utility functions
+      - `axios` - Axios instance
+      - `query-string` - Query string utility
+    - `services/` - API services
+      - `products/` - Product service
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+## Contact
 
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+For any questions or inquiries, please contact Hao Nguyen at [your-email@example.com].

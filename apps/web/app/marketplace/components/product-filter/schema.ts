@@ -41,13 +41,13 @@ export const querySchema = z
       .string()
       .optional()
       .transform((v) =>
-        z.nativeEnum(Tier).safeParse(v).success ? v : undefined
+        z.nativeEnum(Tier).safeParse(v).success ? v : undefined,
       ),
     theme: z
       .string()
       .optional()
       .transform((v) =>
-        z.nativeEnum(Theme).safeParse(v).success ? v : undefined
+        z.nativeEnum(Theme).safeParse(v).success ? v : undefined,
       ),
     _sort: z.string().optional(),
     _order: z.string().optional(),

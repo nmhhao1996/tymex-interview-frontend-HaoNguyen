@@ -12,8 +12,8 @@ const droneRangerPro = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "TymeX",
-  description: "TymeX",
+  title: "TymeX NFT - The Future of NFTs",
+  description: "TymeX NFT - The Future of NFTs",
 };
 
 export default function RootLayout({

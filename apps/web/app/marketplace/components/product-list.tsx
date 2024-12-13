@@ -30,7 +30,7 @@ export default function ProductList() {
     },
     initialPageParam: 1,
     getNextPageParam: (lastPage) => lastPage.nextPage,
-    retry: false,
+    refetchInterval: 1000 * 60,
   });
 
   if (status === "pending") {
