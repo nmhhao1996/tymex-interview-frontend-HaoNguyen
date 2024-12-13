@@ -1,7 +1,12 @@
 .header-menu {
-  display: flex;
+  /* display: flex; */
   height: 100%;
   align-items: center;
+}
+
+.header-menu.header-menu--vertical {
+  flex-direction: column;
+  align-items: start;
 }
 
 .header-menu__item {
