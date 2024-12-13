@@ -129,4 +129,4 @@ pnpm test
 
 ## Contact
 
-For any questions or inquiries, please contact Hao Nguyen at [your-email@example.com].
+For any questions or inquiries, please contact Hao Nguyen at [nmhhao1996@gmail.com].
