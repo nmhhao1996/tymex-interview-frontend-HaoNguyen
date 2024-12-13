@@ -47,7 +47,7 @@ export default function ProductList() {
         {data?.pages.map((page) =>
           page.items.map((product) => (
             <ProductCard key={product.id} product={product} />
-          ))
+          )),
         )}
         <div className="flex justify-center"></div>
       </div>
@@ -76,7 +76,10 @@ export default function ProductList() {
       <div className="space-y-4">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {Array.from({ length: 16 }).map((_, index) => (
-            <ProductCardSkeleton data-testid="skeleton" key={`skeleton-${index}`} />
+            <ProductCardSkeleton
+              data-testid="skeleton"
+              key={`skeleton-${index}`}
+            />
           ))}
         </div>
       </div>

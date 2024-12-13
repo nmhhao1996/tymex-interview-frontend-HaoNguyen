@@ -180,8 +180,7 @@ export default function ProductFilter({ onFilterChange }: ProductFilterProps) {
             render={({ field }) => (
               <Select
                 allowClear={false}
-                defaultValue={TimeOptions["desc"]}
-                placeholder="All"
+                placeholder="Default"
                 value={field.value ?? undefined}
                 onChange={(value) => field.onChange(value)}
               >
@@ -252,7 +251,7 @@ export default function ProductFilter({ onFilterChange }: ProductFilterProps) {
       {},
       {
         keepDefaultValues: true,
-      }
+      },
     );
     onFilterChange?.();
     router.push(pathname, {

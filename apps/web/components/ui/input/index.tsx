@@ -11,7 +11,7 @@ export default function Input(props: InputProps) {
       {...props}
       className={twMerge(
         "bg-transparent border border-input h-10 rounded w-full text-white px-4 outline-white placeholder:text-input",
-        props.className
+        props.className,
       )}
     />
   );

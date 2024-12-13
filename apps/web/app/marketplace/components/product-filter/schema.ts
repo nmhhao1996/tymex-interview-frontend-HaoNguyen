@@ -65,7 +65,7 @@ export const querySchema = z
 
     const order = v._order?.split(",") ?? [];
     v._sort?.split(",").forEach((sort, index) => {
-      if (sort === "time") {
+      if (sort === "createdAt") {
         data.time_sort = order[index];
       }
       if (sort === "price") {
@@ -85,21 +85,21 @@ export const formTransformer = formSchema.transform((v) => {
     theme: v.theme ?? undefined,
     _sort: (() => {
       const sort = [] as string[];
-      if (v.time_sort) {
-        sort.push("time");
-      }
       if (v.price_sort) {
         sort.push("price");
+      }
+      if (v.time_sort) {
+        sort.push("createdAt");
       }
       return sort.filter(Boolean).join(",") || undefined;
     })(),
     _order: (() => {
       const order = [] as string[];
-      if (v.time_sort) {
-        order.push(v.time_sort);
-      }
       if (v.price_sort) {
         order.push(v.price_sort);
+      }
+      if (v.time_sort) {
+        order.push(v.time_sort);
       }
       return order.filter(Boolean).join(",") || undefined;
     })(),

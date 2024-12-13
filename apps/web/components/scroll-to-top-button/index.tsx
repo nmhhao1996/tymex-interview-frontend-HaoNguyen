@@ -24,7 +24,7 @@ export function ScrollToTopButton(): JSX.Element {
     <button
       className={twMerge(
         "fixed bottom-4 right-4 z-50 p-2 rounded-full bg-primary-gradient text-white opacity-80",
-        isVisible ? "block" : "hidden"
+        isVisible ? "block" : "hidden",
       )}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >

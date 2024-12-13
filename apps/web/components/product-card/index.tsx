@@ -69,7 +69,7 @@ export default function ProductCard({
               "absolute h-2 w-2 bottom-0 right-0 rounded-full",
               product.author.onlineStatus === "online" && "bg-green-500",
               product.author.onlineStatus === "busy" && "bg-red-500",
-              product.author.onlineStatus === "idle" && "bg-orange-400"
+              product.author.onlineStatus === "idle" && "bg-orange-400",
             )}
           ></div>
         </div>

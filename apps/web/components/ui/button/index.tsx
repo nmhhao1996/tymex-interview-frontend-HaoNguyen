@@ -17,9 +17,6 @@ export function Button({
   ...props
 }: ButtonProps) {
   return (
-    <button
-      className={twMerge(variants[variant], className)}
-      {...props}
-    />
+    <button className={twMerge(variants[variant], className)} {...props} />
   );
 }

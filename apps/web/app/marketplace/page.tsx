@@ -1,4 +1,3 @@
-import Image from "next/image";
 import CategoryFilter from "./components/category-filter";
 import ProductFilter from "./components/product-filter";
 import ProductFilterDrawer from "./components/product-filter-drawer";

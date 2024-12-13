@@ -50,7 +50,7 @@ describe("CategoryFilter", () => {
   it("disables the selected category button", () => {
     const selectedCategory = Object.values(Category)[0];
     mockUseSearchParams.mockReturnValue(
-      new URLSearchParams(`category=${selectedCategory}`)
+      new URLSearchParams(`category=${selectedCategory}`),
     );
     render(<CategoryFilter />);
     expect(screen.getByText(selectedCategory as string)).toBeDisabled();
@@ -59,7 +59,7 @@ describe("CategoryFilter", () => {
   it("calls router.push with correct params when a category is clicked", () => {
     render(<CategoryFilter />);
     const categoryButton = screen.getByText(
-      Object.values(Category)[0] as string
+      Object.values(Category)[0] as string,
     );
     fireEvent.click(categoryButton);
     const searchParams = new URLSearchParams();
@@ -68,7 +68,7 @@ describe("CategoryFilter", () => {
       "/marketplace?" + searchParams.toString(),
       {
         scroll: false,
-      }
+      },
     );
   });
 

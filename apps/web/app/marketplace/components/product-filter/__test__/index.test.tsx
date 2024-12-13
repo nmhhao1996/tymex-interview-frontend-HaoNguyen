@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import ProductFilter from "../index";
-import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import "@testing-library/jest-dom";

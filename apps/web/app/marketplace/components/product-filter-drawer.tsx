@@ -37,7 +37,11 @@ export default function ProductFilterDrawer(): JSX.Element {
         lockBackgroundScroll
       >
         <div className="flex justify-end">
-          <Button variant="link" onClick={_toggleDrawer} data-testid="close-button">
+          <Button
+            variant="link"
+            onClick={_toggleDrawer}
+            data-testid="close-button"
+          >
             <X />
           </Button>
         </div>

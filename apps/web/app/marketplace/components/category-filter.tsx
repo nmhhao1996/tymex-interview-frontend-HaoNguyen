@@ -46,7 +46,6 @@ export default function CategoryFilter(): JSX.Element {
         newSearchParams.set("category", category);
       }
 
-
       let queryStr = newSearchParams.toString();
       if (queryStr) {
         queryStr = `?${queryStr}`;

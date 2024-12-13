@@ -30,6 +30,6 @@ describe("ProductFilterDrawer", () => {
   it("should show the filter indicator when hasFilter is true", () => {
     (useFilterData as jest.Mock).mockReturnValue({ hasFilter: true });
     render(<ProductFilterDrawer />);
-    expect(screen.getByTestId('ping')).toBeInTheDocument();
+    expect(screen.getByTestId("ping")).toBeInTheDocument();
   });
 });

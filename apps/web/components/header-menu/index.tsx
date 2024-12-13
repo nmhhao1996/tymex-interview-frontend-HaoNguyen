@@ -26,7 +26,7 @@ export default function HeaderMenu({ items }: HeaderMenuProps): JSX.Element {
                 href={item.url}
                 className={twMerge(
                   "font-bold px-3 text-white header-menu__item font-drone-ranger-pro",
-                  activeURL === item.url ? "header-menu__item--active" : ""
+                  activeURL === item.url ? "header-menu__item--active" : "",
                 )}
               >
                 {item.title}
@@ -35,7 +35,7 @@ export default function HeaderMenu({ items }: HeaderMenuProps): JSX.Element {
                     "header-menu__title-underline ml-1",
                     activeURL === item.url
                       ? "header-menu__title-underline--active"
-                      : ""
+                      : "",
                   )}
                 ></div>
               </Link>
